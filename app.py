@@ -41,7 +41,7 @@ def render_html(data):
 
 @app.route("/")
 def main():
-    print r.incr("hits")
+    print 'Hits:', r.incr("hits")
     html = r.get("html")
     if html:
         return html
