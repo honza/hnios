@@ -41,6 +41,7 @@ def render_html(data):
 
 @app.route("/")
 def main():
+    print r.incr("hits")
     html = r.get("html")
     if html:
         return html
@@ -56,4 +57,5 @@ def main():
 
 
 if __name__ == '__main__':
-    app.run()
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
